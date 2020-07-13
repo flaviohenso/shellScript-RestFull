@@ -1,13 +1,13 @@
 #!/bin/bash
 echo > response.json
 
-URL_TOKEN=http://192.168.0.154:8080/oauth/token
-URL_SERVICO=http://192.168.0.154:8080/produto/sincronizar
+URL_TOKEN=http://<ip>:8080/oauth/token
+URL_SERVICO=http://<ip>:8080/produto/sincronizar
 
 echo "Obtendo token de autorização"
 echo $URL_TOKEN
 echo $URL_SERVICO
-curl -X POST -d 'grant_type=client_credentials' --user 'norteng:123' $URL_TOKEN >> response.json
+curl -X POST -d 'grant_type=client_credentials' --user <'password here'> $URL_TOKEN >> response.json
 
 token=$(cat response.json | jq '.access_token')
 
